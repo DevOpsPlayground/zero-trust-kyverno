@@ -1,0 +1,28 @@
+# Terraform files
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+
+# Crash log files
+crash.log
+
+# Ignore CLI-related files
+.terraform/
+.terraform.lock.hcl
+
+# Ignore backup files
+*.backup
+*.log
+
+# Ignore sensitive files
+*.kubeconfig
+*.key
+*.pem
+
+# Ignore system-specific files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp

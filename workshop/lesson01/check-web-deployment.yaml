@@ -1,0 +1,31 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: check-web-deployment
+spec:
+  validationFailureAction: Enforce
+  rules:
+    - name: ensure-web-deployment-exists
+      match:
+        any:
+          - resources:
+              kinds:
+                - Deployment
+      preconditions:
+        all:
+          - key: "{{ request.object.metadata.name }}"
+            operator: NotEquals
+            value: "web"
+          - key: "{{ request.object.metadata.namespace }}"
+            operator: Equals
+            value: "robot-shop"
+      validate:
+        failureAction: Enforce
+        message: "Deployment 'web' must exist in the 'robot-shop' namespace before creating or modifying other resources."
+        # deny: 
+        #   conditions:
+        #     any:
+        #       - key: "{{ 'Deployment'}}"
+        #         operator: NotEquals
+        #         value: "null"
+
