@@ -1,18 +1,3 @@
-# module "aks_clusters" {
-#   source                = "../../modules/aks"
-#   for_each              = toset(local.clusters)
-
-#   cluster_name          = each.value.cluster_name
-#   location              = each.value.location
-#   resource_group_name   = each.value.resource_group_name
-#   dns_prefix            = each.value.dns_prefix
-#   default_node_pool_name = each.value.default_node_pool_name
-#   default_node_pool_count = each.value.default_node_pool_count
-#   default_node_pool_vm_size = each.value.default_node_pool_vm_size
-#   tags                  = each.value.tags
-#   depends_on = [ module.vnet,local.clusters ]
-# }
-
 
 module "aks_clusters" {
   source                    = "../../modules/aks"

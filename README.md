@@ -1,4 +1,8 @@
-# How to Learn Kyverno Policy Definition
+# Devops Playground
+
+## Using Kyverno to Enforce Policies in an E-commerce Azure Kubernetes Workload - A Zero Trust Approach
+
+Getting started with Kyverno Policy Definition
 
 Kyverno is a Kubernetes-native policy engine that allows you to define, validate, and enforce policies for Kubernetes clusters. Here's a step-by-step guide to learning how to define Kyverno policies:
 
@@ -70,5 +74,9 @@ kubectl apply -f kyverno-infra/infra/robot-shop.yaml
 
 
 # Lesson 2
+## Mutation Policy Example
 
 
+
+# Lesson 3
+## Generation Policy Example
