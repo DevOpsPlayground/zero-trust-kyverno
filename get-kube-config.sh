@@ -7,12 +7,13 @@ SP_PASSWORD="xxxxxxxxx.xxxxx"   # Service Principal password
 SP_TENANT="xxxxxxx-xxxxx-4xxxx-8dae-xxxxx"    # Tenant ID
 RESOURCE_GROUP="dev-rg-1"  # AKS Resource Group
 CLUSTER_NAME="dev-aks-1"      # AKS Cluster Name
+SUBSCRIPTION_ID="xxxxxxxxx-xxxxx-xxxxx-xxxxx"  # Subscription ID
 KUBECONFIG_FILE="$HOME/.kube/config"   # Output path for kubeconfig
 
 # Function to log into Azure using a Service Principal
 service_principal_login() {
     echo "Logging into Azure using Service Principal..."
-    az account set -s "732ec2db-5140-4675-bf72-0dd352a999a8"
+    az account set -s "$SUBSCRIPTION_ID"
     az login --service-principal --username "$SP_APP_ID" --password "$SP_PASSWORD" --tenant "$SP_TENANT"
     if [ $? -ne 0 ]; then
         echo "Azure login failed. Please check your Service Principal credentials."
