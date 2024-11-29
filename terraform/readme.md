@@ -6,8 +6,10 @@ This project provisions and manages **Azure Kubernetes Service (AKS)** clusters 
 ---
 
 ## **Project Structure**
-
-terraform/ ├── modules/ │ ├── aks/ # AKS module │ ├── vnet/ # Virtual Network module ├── environments/ │ ├── dev/ # Development environment │ ├── prod/ # Production environment ├── provider.tf # Azure provider configuration ├── versions.tf # Terraform version and providers
+```
+terraform/ ├── modules/ │ ├── aks/ # AKS module │ ├── vnet/ # Virtual Network module ├── environments/ │ ├── dev/ # Development environment │ ├── prod/ # Production environment ├── provider.tf # Azure provider configuration ├── versions.tf 
+```
+# Terraform version and providers
 
 ## How It Works
 Check Azure Login:
@@ -130,7 +132,7 @@ az ad sp create-for-rbac --name "myServicePrincipal" --role Contributor --scopes
 Replace <your-subscription-id> with your Azure subscription ID. The output will look like this:
 ```
 ### To configure KUBECONFIG and gain access to your cluster
-Next change directory to the root (terraform folder)
+Next change directory to the root (folder)
 In the get-kube-config.sh script, you'll need to define the following variables
 ```
 SP_APP_ID="xxxxxx-xxx-xxxx-xxxx-xxxxx"       # Service Principal app ID
