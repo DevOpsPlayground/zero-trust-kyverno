@@ -33,13 +33,11 @@ locals {
     #   tags                      = { environment = "dev", type = "secondary" }
     #   vnet_name                 = "dev-vnet-2"
     #   subnet_name               = "dev-subnet-2"
-    #   location                  = "WEST EUROPE"
     #   resource_group_name       = "dev-rg-2"
     #   address_space             = "10.0.0.0/16"
     #   subnet_prefixes           = "10.0.2.0/24"
     #   app_gateway = {
     #     name          = "dev-appgw-2"
-    #     location      = "WEST EUROPE"
     #     sku_name      = "Standard_v2"
     #     sku_tier      = "Standard_v2"
     #     capacity      = 3

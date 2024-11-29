@@ -89,15 +89,13 @@ No outputs.
 
 ### 1. **Clone the Repository**
 
-git clone <repository-url>
-cd terraform
-
-Choose the environment to deploy, e.g., dev:
+- git clone repo
+- cd terraform
 
 cd environments/dev
 
-### clone the repository
 ### Change directory to terraform/environments/dev
+Choose the environment to deploy to, e.g., dev:
 
 To add or remove clusters
 - go to locals.tf
@@ -127,6 +125,7 @@ Steps
 Create a Service Principal: Run the following command to create a Service Principal with the necessary role for your AKS cluster:
 
 ```
+az login
 az ad sp create-for-rbac --name "myServicePrincipal" --role Contributor --scopes /subscriptions/<your-subscription-id>
 Replace <your-subscription-id> with your Azure subscription ID. The output will look like this:
 ```
@@ -142,7 +141,7 @@ CLUSTER_NAME="dev-aks-1"      # AKS Cluster Name
 KUBECONFIG_FILE="$HOME/.kube/config"   # Output path for kubeconfig
 ```
 
-Ensure you are in the root directory  and run the following to download kubeconfig file for your cluster and gain access
+Ensure you are in the root directory  and run the following to download and configure kubeconfig file for your cluster and gain access
 ```
 run chmod +x get-kube-config.sh
 ./get-kube-config.sh
@@ -150,5 +149,5 @@ run chmod +x get-kube-config.sh
 
 ## Notes
 Azure Sizing Options:
-https://azure.microsoft.com/en-us/pricing/vm-selector/
-https://azure.microsoft.com/en-us/pricing/calculator/?service=kubernetes-service
+- https://azure.microsoft.com/en-us/pricing/vm-selector/
+- https://azure.microsoft.com/en-us/pricing/calculator/?service=kubernetes-service
