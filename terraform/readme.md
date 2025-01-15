@@ -119,6 +119,54 @@ terraform plan
 terraform apply
 ```
 
+
+## Option 2: Create multiple tenants in pre-prod environment by setting the cluster count to the required number of clusters (cluster_count   = 3) to create
+
+### Change directory to terraform/environments/pre-prod
+Choose the environment to deploy to, e.g., proprod:
+
+### Create a new terraform.tfvars file with the following details
+```
+subscription_id = "xxxxxxx-xxxx-xxxx-xxxxxxxxxxxxxxxx"
+tenant_id       = "xxxxxxx-xxxx-xxxx-xxxxxxxxxxxxxxxx"
+client_id       = "xxxxxxx-xxxx-xxxx-xxxxxxxxxxxxxxxx"
+client_secret   = "xxxxxxx-xxxx-xxxx-xxxxxxxxxxxxxxxx"
+```
+
+```
+cluster_count   = 0
+  base_config = {
+    location                  = "WEST US"
+    dns_prefix_base           = "cluster"
+    default_node_pool_name    = "default"
+    default_node_pool_count   = 2
+    default_node_pool_vm_size = "Standard_DS2_v2"
+    vnet_name_base            = "vnet"
+    subnet_name_base          = "subnet"
+    resource_group_name_base  = "rg"
+    address_space_base        = "10.0.0.0/16"
+    subnet_prefixes_base      = "10.0.0.0/16"
+    tags                      = { environment = "dev", type = "primary" }
+    app_gateway = {
+      name_base      = "appgw"
+      sku_name       = "Standard_v2"
+      sku_tier       = "Standard_v2"
+      capacity       = 2
+      frontend_port  = 80
+      backend_port   = 80
+      tags           = { environment = "dev", gateway = "primary" }
+    }
+  }
+```
+
+### Next run terraform init to initialize terraform environment
+```
+terraform init
+terraform plan
+terraform apply
+```
+
+
 ### To configure your service principal, run the following command
 A Service Principal is a non-interactive way to log in, commonly used for automation.
 

@@ -1,13 +1,11 @@
 #!/bin/bash
 
-# Variables - Update these or pass them as arguments
-
-SP_APP_ID="xxxxxxxxx-xxxxx-xxxxx-xxxxxxxxx"       # Service Principal app ID
-SP_PASSWORD="xxxxxxxxx.xxxxx"   # Service Principal password
-SP_TENANT="xxxxxxx-xxxxx-4xxxx-8dae-xxxxx"    # Tenant ID
-RESOURCE_GROUP="dev-rg-1"  # AKS Resource Group
-CLUSTER_NAME="dev-aks-1"      # AKS Cluster Name
-SUBSCRIPTION_ID="xxxxxxxxx-xxxxx-xxxxx-xxxxx"  # Subscription ID
+SP_APP_ID="*************************"       # Service Principal app ID
+SP_PASSWORD="*******************"   # Service Principal password
+SP_TENANT="8a8ec******-1e16-4a33-8*****"    # Tenant ID
+RESOURCE_GROUP="rg-2"  # AKS Resource Group
+CLUSTER_NAME="cluster-2"      # AKS Cluster Name
+SUBSCRIPTION_ID="732ec2db-5140-4675-bf72-0dd352a999a8"  # Subscription ID
 KUBECONFIG_FILE="$HOME/.kube/config"   # Output path for kubeconfig
 
 # Function to log into Azure using a Service Principal
