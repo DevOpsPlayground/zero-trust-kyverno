@@ -22,6 +22,11 @@ RUN mkdir /root/.kube && \
 RUN cd /root/workdir && \
     git clone https://github.com/DevOpsPlayground/zero-trust-kyverno
 
+# Adding Kyverno & Prometheus Community Helm repository
+RUN helm repo add kyverno https://kyverno.github.io/kyverno/ && \
+    helm repo add prometheus-community https://prometheus-community.github.io/helm-charts && \
+    helm repo update
+
 # ~/.bashrc update
 RUN echo 'alias aws_creds="env | grep AWS"' >> ~/.bashrc && \
     echo 'alias workdir="cd ~/workdir/zero-trust-kyverno"' >> ~/.bashrc 
