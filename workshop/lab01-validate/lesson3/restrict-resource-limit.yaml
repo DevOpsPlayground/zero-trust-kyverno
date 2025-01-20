@@ -1,0 +1,31 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: resource-quantities
+spec:
+  background: false
+  rules:
+  - name: memory-limit
+    match:
+      any:
+      - resources:
+          kinds:
+          - Deployment
+    preconditions:
+      all:
+      - key: "{{request.object.spec.template.spec.containers[0].name}}"
+        operator: Equals
+        value: cart
+    validate:
+      allowExistingViolations: true
+      message: "Match the preconditions"
+      pattern:
+        spec:
+          template:
+            spec:
+              containers:
+                - name: "?*"
+                  resources:
+                    limits:
+                      cpu: "<300m"
+                      memory: "<=50Mi"

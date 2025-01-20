@@ -66,11 +66,9 @@ Create a validation policy that ensures that a Deployment named web exists in th
 
 Navigate to the workshop folder and Open the file check-web-deployment.yaml in the lesson 1 folder.
 
+Open lab01-validate
 Run the following command to create the policy:
-kubectl apply -f workshop/lesson01/check-web-deployment.yaml 
-
-Next: Deploy the workload using the following command
-kubectl apply -f kyverno-infra/infra/robot-shop.yaml
+kubectl apply -f workshop/lab01-validate/lesson01/validate-namespace.yaml 
 
 
 # Lesson 2
