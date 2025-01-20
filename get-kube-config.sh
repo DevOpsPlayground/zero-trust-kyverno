@@ -1,13 +1,12 @@
 #!/bin/bash
 
-SP_APP_ID="*************************"       # Service Principal app ID
-SP_PASSWORD="*******************"   # Service Principal password
-SP_TENANT="8a8ec******-1e16-4a33-8*****"    # Tenant ID
-RESOURCE_GROUP="rg-2"  # AKS Resource Group
-CLUSTER_NAME="cluster-2"      # AKS Cluster Name
-SUBSCRIPTION_ID="732ec2db-5140-4675-bf72-0dd352a999a8"  # Subscription ID
+SP_APP_ID="xxxxxxxxxx"       # Service Principal app ID
+SP_PASSWORD="xxxxxxxxxxxx"   # Service Principal password
+SP_TENANT="xxxxxxxxxxx"    # Tenant ID
+RESOURCE_GROUP="rg-1"  # AKS Resource Group
+CLUSTER_NAME="cluster-1"      # AKS Cluster Name
+SUBSCRIPTION_ID="xxxxxxxxxxxxxxxx"  # Subscription ID
 KUBECONFIG_FILE="$HOME/.kube/config"   # Output path for kubeconfig
-
 # Function to log into Azure using a Service Principal
 service_principal_login() {
     echo "Logging into Azure using Service Principal..."
